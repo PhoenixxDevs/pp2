@@ -5,37 +5,68 @@ class Circle {
     this.vel = config.vel;
     this.color = config.color;
   }
-  draw(){
-    ctx.fillStyle = config.color;
+  draw() {
+    ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.arc(this.pos.x, this.pos.y, this.size, 0, Math.PI * 2);
     ctx.fill();
   }
-  move(){
+  move() {
     this.pos.x += this.vel.x;
     this.pos.y += this.vel.y;
-  }
-  update() {
-    if(this.vel.x > 0 || this.vel.y > 0){
-      this.move();
-    }
-    this.draw();
   }
 }
 
 class Target extends Circle {
-  constructor(){
-    super();
+  constructor(type, id) {
+    let config;
+    switch (type) {
+      case "default":
+      default:
+        let size = getRandomInt(10, 25);
+        let posX = getRandomInt(size, WIDTH - size);
+        let posY = getRandomInt(size, HEIGHT - size);
+        config = {
+          size:size,
+          pos: {
+            x: posX,
+            y: posY,
+          },
+          vel: {
+            x: 0,
+            y: 0,
+          },
+          color: `hsl(${getRandomInt(100, 350)} 90% 92%)`,
+        }
+        break;
+    }
+    super(config);
+    this.id = id;
   }
-  checkContactMouse(){
+  checkContactMouse() {
     let dx = this.pos.x - mouse.pos.x;
     let dy = this.pos.y - mouse.pos.y;
-    if(
-      // DISTANCE LESS THAN HYPOTENUSE USING PYTHAG MEANS TOUCHING 
-      Math.sqrt(
-        ((dx) * (dx)) + ((dy) * (dy))
-      ) < this.size + mouse.size){
-        return true;
+    if (
+      // DISTANCE LESS THAN HYPOTENUSE USING PYTHAG MEANS TOUCHING
+      Math.sqrt(dx * dx + dy * dy) <
+      this.size + mouse.size
+    ) {
+      return true;
+    }
+  }
+  update() {
+    if(this.checkContactMouse() && mouse.fire){
+      targets[this.id] = null;
+      if(targets.length < 1){
+        ctx.clearRect(0, 0, WIDTH, HEIGHT);
       }
+    }
+    if (this.vel.x > 0 || this.vel.y > 0) {
+      this.move();
+    }
+    if(targets.length > 1){
+
+      this.draw();
+    }
   }
 }

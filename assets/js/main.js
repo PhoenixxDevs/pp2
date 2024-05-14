@@ -1,63 +1,59 @@
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 const mouse = {
   pos: { x: undefined, y: undefined },
-  size: 1
-}
-const getRandomInt = function (min, max){
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-let targetConfigs = {
-  screenDimensions: { width: undefined, height: undefined },
-  default: { 
-    screen: this.screenDimensions,
-    size: getRandomInt(10, 25),
-    pos: { 
-      x: getRandomInt(this.size, this.screen.width - this.size),
-      y: getRandomInt(this.screen.height - this.size)
-    },
-    vel: {
-      x: 0, y: 0
-    },
-    color: `hsl(${getRandomInt(200,250)}, 80%, 92%)`
-  }
-}
-let WIDTH, HEIGHT;
+  size: 1,
+  fire: false
+};
+let WIDTH, HEIGHT, targetDefinitions;
 let targets = new Array(50);
 
-function resize(){
-  WIDTH = canvas.width = targetConfigs.width = window.innerWidth - 4;
-  HEIGHT = canvas.height = targetConfigs.height = window.innerHeight - 4;
-
+function resize() {
+  WIDTH = canvas.width = window.innerWidth - 4;
+  HEIGHT = canvas.height = window.innerHeight - 4;
 }
-
-function createTarget(config){
-  for(let i = 0; i < config.amount; i++) {
-    targets[i] = (new Target(config));
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function createTarget(amount, type) {
+  for (let i = 0; i < amount; i++) {
+    targets[i] = new Target(type, i);
   }
 }
 
-function main(){
+function main() {
   resize();
-  createTarget(targetConfigs.default);
-  console.log(targets)
+  createTarget(10, 'default');
+  console.log(targets);
   animate();
 }
 
-function animate(){
+function animate() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
   // GAME LOOP
-  for(let i = 0; i < targets.length; i++) {
-    targets[i].update();
+  for (let i = 0; i < targets.length; i++) {
+    if (!targets[i]) {
+      continue;
+    }
+    else { targets[i].update(); }
   }
 
+  mouse.fire = false;
   requestAnimationFrame(animate);
 }
 
-addEventListener('mousemove', (e) => {
+addEventListener("mousemove", (e) => {
   mouse.pos.x = e.pageX;
   mouse.pos.y = e.pageY;
+});
+addEventListener('mousedown', (e) => {
+  if(e.repeat){
+    return;
+  }
+  mouse.fire = true;
+});
+addEventListener('mouseup', () => {
+  mouse.fire = false;
 })
 
 main();
