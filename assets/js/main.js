@@ -2,12 +2,17 @@ const mainMenu = document.getElementById("main-menu");
 const gameOverMenu = document.getElementById("game-over");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-const mouse = {
-  pos: { x: undefined, y: undefined },
-  fire: false,
-  size: 2,
-  firstClick: false
-};
+const mouse = new Circle({
+  size: 3,
+  pos: {
+    x: undefined,
+    y: undefined
+  },
+  vel: {x: 0, y: 0},
+  color: 'yellow'
+});
+mouse.fire = false;
+mouse.firstClick = false;
 let WIDTH, HEIGHT, targetDefinitions;
 // PRESETTING SIZE OF ARRAY HELPS WITH PERFORMANCE - NO GARBAGE COLLECTION NECESSARY
 let targets = new Array(10);
@@ -32,6 +37,10 @@ function gameOver() {
 
 function main() {
   resize();
+  mouse.pos = { 
+    x: Math.floor(WIDTH / 2),
+    y: Math.floor(HEIGHT / 2)
+  }
   createTarget(10, "default");
   mainMenu.classList.add("hide");
   gameOverMenu.classList.add("hide");
@@ -44,6 +53,10 @@ function main() {
 function animate() {
   ctx.fillStyle = 'rgba(0,0,0,0.2)';
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  mouse.color = `hsl(${Math.floor(mouse.pos.y)} 87% 95%)`;
+  console.log(mouse.color);
+  mouse.draw();
 
   // GAME LOOP
   if(emptyTargets > targets.length){
@@ -60,6 +73,10 @@ function animate() {
       targets[i].update(); 
       emptyTargets = 0;
     }
+  }
+  if(!mouse.firstClick && mouse.fire){
+    mouse.firstClick = true;
+    // start timer here
   }
   mouse.fire = false;
   requestAnimationFrame(animate);
