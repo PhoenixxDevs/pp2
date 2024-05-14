@@ -9,6 +9,7 @@
 body {
   background-color: black;
   overflow: hidden;
+  color: rgb(243, 223, 255);
 }
 
 canvas {
@@ -30,10 +31,9 @@ canvas {
 }
 
 .title {
-  margin: 30px 0;
+  margin: 60px 0;
   text-align: center;
   font-size: 160px;
-  color: white;
 }
 
 .description {
@@ -41,7 +41,6 @@ canvas {
   line-height: 1.4;
   text-align: center;
   font-size: 30px;
-  color: white;
 }
 .description em {
   font-size: 36px;
@@ -51,7 +50,19 @@ canvas {
   display: none;
 }
 
-button {
+h2 {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 80px;
+}
+
+h3 {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 100px;
+}
+
+.button {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -62,15 +73,15 @@ button {
   background-color: rgb(0, 255, 221);
   transition: ease-in-out all 0.7s;
 }
-button:hover {
-  background-color: rgb(220, 255, 79);
+.button:hover {
+  background-color: rgb(150, 255, 175);
+  color:rgb(72, 0, 255);
   border-image: linear-gradient(20deg, rgb(149, 0, 255), white) 1;
 }
-button:active {
+.button:active {
   background-color: rgb(149, 0, 255);
   color: white;
   border-image: linear-gradient(210deg, rgb(149, 0, 255), white) 1;
-
 }
 
           /* EXTRA STYLES */
