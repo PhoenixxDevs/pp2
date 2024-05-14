@@ -1,10 +1,10 @@
-const mainMenu = document.getElementById('main-menu');
+const mainMenu = document.getElementById("main-menu");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const mouse = {
   pos: { x: undefined, y: undefined },
-  size: 2,
-  fire: false
+  fire: false,
+  size: 2
 };
 let WIDTH, HEIGHT, targetDefinitions;
 // PRESETTING SIZE OF ARRAY HELPS WITH PERFORMANCE - NO GARBAGE COLLECTION NECESSARY
@@ -25,13 +25,13 @@ function createTarget(amount, type) {
   }
 }
 function gameOver() {
-  mainMenu.classList.remove('hide');
+  mainMenu.classList.remove("hide");
 }
 
 function main() {
   resize();
-  createTarget(10, 'default');
-  mainMenu.classList.add('hide');
+  createTarget(10, "default");
+  mainMenu.classList.add("hide");
   animate();
 }
 
@@ -58,16 +58,16 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-addEventListener('mousemove', (e) => {
+addEventListener("mousemove", (e) => {
   mouse.pos.x = e.pageX;
   mouse.pos.y = e.pageY;
 });
-addEventListener('mousedown', (e) => {
+addEventListener("mousedown", (e) => {
   if(e.repeat){
     return;
   }
   mouse.fire = true;
 });
-addEventListener('mouseup', () => {
+addEventListener("mouseup", () => {
   mouse.fire = false;
 });
