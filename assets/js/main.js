@@ -1,5 +1,9 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+const mouse = {
+  pos: { x: undefined, y: undefined },
+  size: 1
+}
 
 let WIDTH, HEIGHT;
 
@@ -17,3 +21,8 @@ function animate(){
 
   requestAnimationFrame(animate);
 }
+
+addEventListener('mousemove', (e) => {
+  mouse.pos.x = e.pageX;
+  mouse.pos.y = e.pageY;
+})

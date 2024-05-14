@@ -19,3 +19,20 @@ class Circle {
     this.draw();
   }
 }
+
+class Target extends Circle {
+  constructor(){
+    super();
+  }
+  checkContactMouse(){
+    let dx = this.pos.x - mouse.pos.x;
+    let dy = this.pos.y - mouse.pos.y;
+    if(
+      // DISTANCE LESS THAN HYPOTENUSE USING PYTHAG MEANS TOUCHING 
+      Math.sqrt(
+        ((dx) * (dx)) + ((dy) * (dy))
+      ) < this.size + mouse.size){
+        return true;
+      }
+  }
+}
