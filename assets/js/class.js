@@ -4,6 +4,7 @@ class Circle {
     this.pos = config.pos;
     this.vel = config.vel;
     this.color = config.color;
+    this.firstUpdate = true;
   }
   draw() {
     ctx.fillStyle = this.color;
@@ -23,7 +24,7 @@ class Target extends Circle {
     switch (type) {
       case "default":
       default:
-        let size = getRandomInt(10, 25);
+        let size = getRandomInt(20, 55);
         let posX = getRandomInt(size, WIDTH - size);
         let posY = getRandomInt(size, HEIGHT - size);
         config = {
@@ -43,25 +44,45 @@ class Target extends Circle {
     super(config);
     this.id = id;
   }
-  checkContactMouse() {
-    let dx = this.pos.x - mouse.pos.x;
-    let dy = this.pos.y - mouse.pos.y;
+  // if spawning over another cirlce, relocate (WORKS 99% OF TIME)
+  randomisePos(i) {
+    if(this.checkContact(targets[i])){
+      this.pos = {
+        x: getRandomInt(this.size, WIDTH - this.size),
+        y: getRandomInt(this.size, HEIGHT - this.size)
+      }
+    }
+  }
+  checkContact(circle) {
+    let dx = this.pos.x - circle.pos.x;
+    let dy = this.pos.y - circle.pos.y;
     if (
       // DISTANCE LESS THAN HYPOTENUSE USING PYTHAG MEANS TOUCHING
       Math.sqrt(dx * dx + dy * dy) <
-      this.size + mouse.size
+      this.size + circle.size
     ) {
       return true;
     }
   }
   update() {
     // CLEAR ON CLICK
-    if(this.checkContactMouse() && mouse.fire){
-      targets[this.id] = null;
+    if(this.firstUpdate){
+      for(let i = 0; i < targets.length; i++) {
+        if(targets[i].id === this.id){
+          continue;
+        }
+        this.randomisePos(i);
+      }
+    }
+    if(mouse.fire){
+      if(this.checkContact(mouse)){
+        targets[this.id] = null;
+      }
     }
     if (this.vel.x > 0 || this.vel.y > 0) {
       this.move();
     }
       this.draw();
+      this.firstUpdate = false;
   }
 }
