@@ -4,6 +4,7 @@ class Circle {
     this.pos = config.pos;
     this.vel = config.vel;
     this.color = config.color;
+    this.strokeBool = config.strokeBool;
     this.firstUpdate = true;
   }
   draw() {
@@ -11,6 +12,13 @@ class Circle {
     ctx.beginPath();
     ctx.arc(this.pos.x, this.pos.y, this.size, 0, Math.PI * 2);
     ctx.fill();
+    if(this.strokeBool){
+      ctx.strokeStyle = 'red';
+      ctx.strokeWidth = 2;
+      ctx.beginPath();
+      ctx.arc(this.pos.x, this.pos.y, this.size, 0, Math.PI * 2);
+      ctx.stroke();
+    }
   }
   move() {
     this.pos.x += this.vel.x;

@@ -3,13 +3,14 @@ const gameOverMenu = document.getElementById("game-over");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const mouse = new Circle({
-  size: 3,
+  size: 5,
   pos: {
     x: undefined,
     y: undefined
   },
   vel: {x: 0, y: 0},
-  color: 'yellow'
+  color: 'yellow',
+  strokeBool: true
 });
 mouse.fire = false;
 mouse.firstClick = false;
@@ -54,10 +55,6 @@ function animate() {
   ctx.fillStyle = 'rgba(0,0,0,0.2)';
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-  mouse.color = `hsl(${Math.floor(mouse.pos.y)} 87% 95%)`;
-  console.log(mouse.color);
-  mouse.draw();
-
   // GAME LOOP
   if(emptyTargets > targets.length){
     emptyTargets = 0;
@@ -74,6 +71,8 @@ function animate() {
       emptyTargets = 0;
     }
   }
+  mouse.color = `hsl(${Math.floor(mouse.pos.y + 1 / 2)} 97% 75%)`;
+  mouse.draw();
   if(!mouse.firstClick && mouse.fire){
     mouse.firstClick = true;
     // start timer here
