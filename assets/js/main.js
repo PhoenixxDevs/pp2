@@ -1,24 +1,34 @@
 const mainMenu = document.getElementById("main-menu");
 const gameOverMenu = document.getElementById("game-over");
+const startButton = document
+  .getElementById("start-button")
+  .getBoundingClientRect();
+const timeTracker = document.getElementById("time-tracker");
+const ui = document.getElementById("ui");
+const score = document.getElementById("end-time");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const mouse = new Circle({
   size: 5,
   pos: {
     x: undefined,
-    y: undefined
+    y: undefined,
   },
-  vel: {x: 0, y: 0},
-  color: 'yellow',
-  strokeBool: true
+  vel: { x: 0, y: 0 },
+  color: "yellow",
+  strokeBool: true,
 });
-mouse.fire = false;
-mouse.firstClick = false;
-let WIDTH, HEIGHT, targetDefinitions;
+
+let WIDTH,
+  HEIGHT,
+  targetDefinitions,
+  gameStart,
+  emptyTargets,
+  timer,
+  timerStarted,
+  delta;
 // PRESETTING SIZE OF ARRAY HELPS WITH PERFORMANCE - NO GARBAGE COLLECTION NECESSARY
-let targets = new Array(10);
-let gameStart = false;
-let emptyTargets = 0;
+let targets = new Array(15);
 
 function resize() {
   WIDTH = canvas.width = window.innerWidth - 4;
@@ -33,52 +43,69 @@ function createTarget(amount, type) {
   }
 }
 function gameOver() {
+  gameStart = false;
   gameOverMenu.classList.remove("hide");
+  timeTracker.classList.add("hide");
+  ui.classList.add("hide");
+  score.innerText = `${Math.floor(delta) / 1000} SECONDS!`;
 }
 
 function main() {
   resize();
-  mouse.pos = { 
-    x: Math.floor(WIDTH / 2),
-    y: Math.floor(HEIGHT / 2)
-  }
-  createTarget(10, "default");
+  timeTracker.classList.remove("hide");
+  ui.classList.remove("hide");
+  timer = 0;
+  timerStarted = false;
+  delta = 0;
+  emptyTargets = 0;
+  mouse.fire = false;
+  mouse.firstClick = false;
+  mouse.pos = {
+    x: startButton.x + startButton.width / 2,
+    y: startButton.y + startButton.height / 2,
+  };
+  createTarget(targets.length, "default");
   mainMenu.classList.add("hide");
   gameOverMenu.classList.add("hide");
-  if(!gameStart){
+  if (!gameStart) {
     animate();
     gameStart = true;
   }
 }
 
-function animate() {
-  ctx.fillStyle = 'rgba(0,0,0,0.2)';
+function animate(timestamp) {
+  if (gameStart) {
+  ctx.fillStyle = "rgba(0,0,0,0.2)";
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-  // GAME LOOP
-  if(emptyTargets > targets.length){
-    emptyTargets = 0;
-    gameOver();
-  };
-
-  for (let i = 0; i < targets.length; i++) {
-    if (!targets[i]) {
-      emptyTargets++;
-      continue;
+    delta = timestamp - timer;
+    if (timerStarted) {
+      timeTracker.innerText = `${Math.floor(delta) / 1000}`;
     }
-    else { 
-      targets[i].update(); 
+    // GAME LOOP
+    if (emptyTargets > targets.length) {
       emptyTargets = 0;
+      gameOver();
     }
+
+    for (let i = 0; i < targets.length; i++) {
+      if (!targets[i]) {
+        emptyTargets++;
+        continue;
+      } else {
+        targets[i].update();
+        emptyTargets = 0;
+      }
+    }
+    mouse.color = `hsl(${Math.floor(mouse.pos.y + 1 / 2)} 97% 75%)`;
+    mouse.draw();
+    if (!mouse.firstClick && mouse.fire) {
+      mouse.firstClick = true;
+      timerStarted = true;
+      timer = timestamp;
+    }
+    mouse.fire = false;
   }
-  mouse.color = `hsl(${Math.floor(mouse.pos.y + 1 / 2)} 97% 75%)`;
-  mouse.draw();
-  if(!mouse.firstClick && mouse.fire){
-    mouse.firstClick = true;
-    // start timer here
-  }
-  mouse.fire = false;
-  requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
 }
 
 addEventListener("mousemove", (e) => {
@@ -86,7 +113,7 @@ addEventListener("mousemove", (e) => {
   mouse.pos.y = e.pageY;
 });
 addEventListener("mousedown", (e) => {
-  if(e.repeat){
+  if (e.repeat) {
     return;
   }
   mouse.fire = true;

@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aim Trainer</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
-</head>
-<body>
-  <canvas id="canvas"></canvas>
-  <div id="main-menu" class="menu">
-    <h1 class="title j20">AIM TRAINER</h1>
-    <p class="description j20">
-      AIM TRAINER is a simple game that helps improve your aim and reaction time. <br>
-      Your goal is to click all of the targets as quickly as possible. <br>
-      Click the <em>START</em> button to begin.
-    </p>
-    <button id="start-button" class="button j20"onclick="main()">START</button>
-  </div>
-  <div id="game-over" class="menu hide j20">
-    <h1 class="title j20">NICE ONE!</h1>
-    <h2 class="j20">Your Time Was:</h2>
-    <h3 id="end-time" class="j20"></h3>
-  </div>
-  <script src="assets/js/class.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aim Trainer</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div id="main-menu" class="menu">
+      <h1 class="title j20">AIM TRAINER</h1>
+      <p class="description j20">
+        AIM TRAINER is a simple game that helps improve your aim and reaction
+        time. <br />
+        Your goal is to click all of the targets as quickly as possible. <br />
+        Click the <em>START</em> button to begin.
+      </p>
+      <button id="start-button" class="button j20" onclick="main()">
+        START
+      </button>
+    </div>
+    <div id="game-over" class="menu hide j20">
+      <h1 class="title j20">NICE ONE!</h1>
+      <h2 class="j20">Your Time Was:</h2>
+      <h3 id="end-time" class="j20"></h3>
+    </div>
+    <div id="ui" class="hide">
+      <h4 id="time-tracker" class="tracker j20 hide"></h4>
+      <div id="restart"></div>
+      <div id="home"></div>
+    </div>
+    <script src="assets/js/class.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

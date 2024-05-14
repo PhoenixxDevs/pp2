@@ -34,7 +34,7 @@ class Target extends Circle {
       default:
         let size = getRandomInt(20, 55);
         let posX = getRandomInt(size, WIDTH - size);
-        let posY = getRandomInt(size, HEIGHT - size);
+        let posY = getRandomInt(size, HEIGHT * 0.9 - size);
         config = {
           size:size,
           pos: {
@@ -57,9 +57,12 @@ class Target extends Circle {
     if(this.checkContact(targets[i])){
       this.pos = {
         x: getRandomInt(this.size, WIDTH - this.size),
-        y: getRandomInt(this.size, HEIGHT - this.size)
+        y: getRandomInt(this.size, HEIGHT * 0.8 - this.size)
       }
+      console.log('yo');
+      this.randomisePos(i);
     }
+    else return
   }
   checkContact(circle) {
     let dx = this.pos.x - circle.pos.x;
