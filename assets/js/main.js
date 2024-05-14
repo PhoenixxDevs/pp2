@@ -6,6 +6,7 @@ const mouse = {
   fire: false
 };
 let WIDTH, HEIGHT, targetDefinitions;
+// PRESETTING SIZE OF ARRAY HELPS WITH PERFORMANCE - NO GARBAGE COLLECTION NECESSARY
 let targets = new Array(10);
 let gameStart = false;
 

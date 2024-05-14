@@ -1,3 +1,5 @@
+          /* BOILER */
+
 * {
   padding: 0;
   margin: 0;
@@ -16,6 +18,8 @@ canvas {
   border: 1px solid white;
 }
 
+          /* MAIN STYLES */
+
 .main-menu {
   position: absolute;
   top: 0; left: 0;
@@ -23,4 +27,30 @@ canvas {
   height: 100dvh;
   background-color: black;
   z-index: 10;
+}
+
+.title {
+  margin: 30px 0;
+  text-align: center;
+  font-size: 69px;
+  color: white;
+}
+
+.description {
+  margin: 60px 0;
+  line-height: 1.4;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+.description em {
+  font-size: 36px;
+}
+
+          /* EXTRA STYLES */
+
+.j20 {
+  font-family: "Jersey 20", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }

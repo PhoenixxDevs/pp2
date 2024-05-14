@@ -55,6 +55,7 @@ class Target extends Circle {
     }
   }
   update() {
+    // CLEAR ON CLICK
     if(this.checkContactMouse() && mouse.fire){
       targets[this.id] = null;
     }
