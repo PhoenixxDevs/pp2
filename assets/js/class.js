@@ -16,6 +16,9 @@ class Circle {
     this.pos.y += this.vel.y;
   }
   update() {
+    if(this.vel.x > 0 || this.vel.y > 0){
+      this.move();
+    }
     this.draw();
   }
 }

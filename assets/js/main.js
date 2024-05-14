@@ -6,13 +6,19 @@ const mouse = {
 }
 
 let WIDTH, HEIGHT;
+let targets = new Array(50);
+
+
 
 function resize(){
   WIDTH = canvas.width = window.innerWidth - 4;
   HEIGHT = canvas.height = window.innerHeight - 4;
 }
 
-resize();
+function main(){
+  resize();
+  animate();
+}
 
 function animate(){
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
