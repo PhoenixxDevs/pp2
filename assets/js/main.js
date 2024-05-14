@@ -1,3 +1,4 @@
+const mainMenu = document.getElementById('main-menu');
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const mouse = {
@@ -9,6 +10,7 @@ let WIDTH, HEIGHT, targetDefinitions;
 // PRESETTING SIZE OF ARRAY HELPS WITH PERFORMANCE - NO GARBAGE COLLECTION NECESSARY
 let targets = new Array(10);
 let gameStart = false;
+let emptyTargets = 0;
 
 function resize() {
   WIDTH = canvas.width = window.innerWidth - 4;
@@ -22,23 +24,36 @@ function createTarget(amount, type) {
     targets[i] = new Target(type, i);
   }
 }
+function gameOver() {
+  mainMenu.classList.remove('hide');
+}
 
 function main() {
   resize();
   createTarget(10, 'default');
+  mainMenu.classList.add('hide');
   animate();
 }
 
 function animate() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
   // GAME LOOP
+  if(emptyTargets > targets.length){
+    emptyTargets = 0;
+    gameOver();
+  };
+
   for (let i = 0; i < targets.length; i++) {
     if (!targets[i]) {
+      emptyTargets++;
       continue;
     }
-    else { targets[i].update(); }
+    else { 
+      targets[i].update(); 
+      emptyTargets = 0;
+    }
   }
-
   mouse.fire = false;
   requestAnimationFrame(animate);
 }
@@ -55,6 +70,4 @@ addEventListener('mousedown', (e) => {
 });
 addEventListener('mouseup', () => {
   mouse.fire = false;
-})
-
-addEventListener('DOMContentLoaded', main);
+});

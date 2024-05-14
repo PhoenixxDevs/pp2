@@ -47,6 +47,10 @@ canvas {
   font-size: 36px;
 }
 
+.hide {
+  display: none;
+}
+
           /* EXTRA STYLES */
 
 .j20 {
