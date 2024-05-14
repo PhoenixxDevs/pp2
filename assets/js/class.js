@@ -57,16 +57,10 @@ class Target extends Circle {
   update() {
     if(this.checkContactMouse() && mouse.fire){
       targets[this.id] = null;
-      if(targets.length < 1){
-        ctx.clearRect(0, 0, WIDTH, HEIGHT);
-      }
     }
     if (this.vel.x > 0 || this.vel.y > 0) {
       this.move();
     }
-    if(targets.length > 1){
-
       this.draw();
-    }
   }
 }

@@ -2,11 +2,12 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const mouse = {
   pos: { x: undefined, y: undefined },
-  size: 1,
+  size: 2,
   fire: false
 };
 let WIDTH, HEIGHT, targetDefinitions;
-let targets = new Array(50);
+let targets = new Array(10);
+let gameStart = false;
 
 function resize() {
   WIDTH = canvas.width = window.innerWidth - 4;
@@ -24,7 +25,6 @@ function createTarget(amount, type) {
 function main() {
   resize();
   createTarget(10, 'default');
-  console.log(targets);
   animate();
 }
 
@@ -42,7 +42,7 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-addEventListener("mousemove", (e) => {
+addEventListener('mousemove', (e) => {
   mouse.pos.x = e.pageX;
   mouse.pos.y = e.pageY;
 });
@@ -56,4 +56,4 @@ addEventListener('mouseup', () => {
   mouse.fire = false;
 })
 
-main();
+addEventListener('DOMContentLoaded', main);
