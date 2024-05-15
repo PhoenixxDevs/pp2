@@ -22,7 +22,7 @@
         Your goal is to click all of the targets as quickly as possible. <br />
         Click the <em>START</em> button to begin.
       </p>
-      <button id="start-button" class="button j20" onclick="main()">
+      <button id="start-button" class="button j20" onclick="main(1)">
         START
       </button>
     </div>
@@ -30,11 +30,15 @@
       <h1 class="title j20">NICE ONE!</h1>
       <h2 class="j20">Your Time Was:</h2>
       <h3 id="end-time" class="j20"></h3>
+      <h3 id="new-record" class="j20">NEW RECORD!</h3>
     </div>
-    <div id="ui" class="hide">
+    <div id="times" class="hide">
       <h4 id="time-tracker" class="tracker j20 hide"></h4>
-      <div id="restart"></div>
-      <div id="home"></div>
+      <h4 id="hi-score" class="tracker j20 hide"></h4>
+    </div>
+    <div id="nav" class="hide">
+      <div id="restart" class="nav-button" onclick="main(0)"></div>
+      <div id="home" class="nav-button" onclick="goHome()"></div>
     </div>
     <script src="assets/js/class.js"></script>
     <script src="assets/js/main.js"></script>

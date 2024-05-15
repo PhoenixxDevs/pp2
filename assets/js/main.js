@@ -3,8 +3,10 @@ const gameOverMenu = document.getElementById("game-over");
 const startButton = document
   .getElementById("start-button")
   .getBoundingClientRect();
+const times = document.getElementById("times");
+const nav = document.getElementById("nav");
 const timeTracker = document.getElementById("time-tracker");
-const ui = document.getElementById("ui");
+const scoreboard = document.getElementById("hi-score");
 const score = document.getElementById("end-time");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
@@ -29,7 +31,7 @@ let WIDTH,
   delta;
 // PRESETTING SIZE OF ARRAY HELPS WITH PERFORMANCE - NO GARBAGE COLLECTION NECESSARY
 let targets = new Array(15);
-let hiScore = 100000 || localStorage.getItem("hiScore");
+let hiScore = localStorage.getItem("hiScore") || 10000;
 
 /////// UTILITY FUNCTIONS
 
@@ -45,31 +47,43 @@ function createTarget(amount, type) {
     targets[i] = new Target(type, i);
   }
 }
-function gameOver() {
+function gameOver(gameOver) {
   gameStart = false;
   gameOverMenu.classList.remove("hide");
   timeTracker.classList.add("hide");
-  ui.classList.add("hide");
+  times.classList.add("hide");
   score.innerText = `${Math.floor(delta) / 1000} SECONDS!`;
-  if(!localStorage.getItem("hiScore") || localStorage.getItem("hiScore") < delta){
-    localStorage.setItem("hiScore", delta);
+  if (gameOver) {
+    if (
+      !localStorage.getItem("hiScore") ||
+      localStorage.getItem("hiScore") > delta
+    ) {
+      localStorage.setItem("hiScore", delta);
+      hiScore = localStorage.getItem("hiScore");
+      scoreboard.innerText = `Best Time: ${Math.floor(hiScore) / 1000} Seconds`;
+    }
   }
 }
-function mouseInit() {
+function mouseInit(moveMouse) {
   mouse.fire = false;
   mouse.firstClick = false;
-  mouse.pos = {
-    x: startButton.x + startButton.width / 2,
-    y: startButton.y + startButton.height / 2,
-  };
+  if (moveMouse) {
+    mouse.pos = {
+      x: startButton.x + startButton.width / 2,
+      y: startButton.y + startButton.height / 2,
+    };
+  }
 }
 function timeInit() {
   timeTracker.classList.remove("hide");
+  scoreboard.classList.remove("hide");
+  scoreboard.innerText = `Best Time: ${Math.floor(hiScore) / 1000} Seconds`;
   timer = 0;
   timerStarted = false;
   delta = 0;
+  timeTracker.innerText = 0;
 }
-function handleTargets(){
+function handleTargets() {
   for (let i = 0; i < targets.length; i++) {
     if (!targets[i]) {
       emptyTargets++;
@@ -80,14 +94,24 @@ function handleTargets(){
     }
   }
 }
+function goHome() {
+  gameOver(0);
+  mouseInit(0);
+  timeInit();
+  timeTracker.innerText = 0;
+  nav.classList.add("hide");
+  mainMenu.classList.remove("hide");
+  gameOverMenu.classList.add("hide");
+}
 
 ///// MAIN PROGRAMME
 
-function main() {
+function main(moveMouse) {
   resize();
-  mouseInit();
+  mouseInit(moveMouse);
   timeInit();
-  ui.classList.remove("hide");
+  times.classList.remove("hide");
+  nav.classList.remove("hide");
   emptyTargets = 0;
   createTarget(targets.length, "default");
   mainMenu.classList.add("hide");
@@ -100,8 +124,8 @@ function main() {
 
 function animate(timestamp) {
   if (gameStart) {
-  ctx.fillStyle = "rgba(0,0,0,0.2)";
-  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+    ctx.fillStyle = "rgba(0,0,0,0.2)";
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
     delta = timestamp - timer;
     if (timerStarted) {
       timeTracker.innerText = `${Math.floor(delta) / 1000}`;
@@ -109,7 +133,7 @@ function animate(timestamp) {
     // GAME LOOP
     if (emptyTargets > targets.length) {
       emptyTargets = 0;
-      gameOver();
+      gameOver(1);
     }
 
     handleTargets();
@@ -123,7 +147,7 @@ function animate(timestamp) {
     }
     mouse.fire = false;
   }
-    requestAnimationFrame(animate);
+  requestAnimationFrame(animate);
 }
 
 addEventListener("mousemove", (e) => {

@@ -62,13 +62,46 @@ h3 {
   text-align: center;
   font-size: 100px;
 }
-
-h4 {
+#new-record {
   position: absolute;
-  top: 90%; left: 5%;
+  bottom: 15%;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  font-size: 120px;
+  color: rgb(239, 239, 134);
+  overflow: visible;
+  animation: record infinite cubic-bezier(0.65, 0.285, 0.92, 1) 2s;
+}
+
+.tracker {
+  position: absolute;
   color: white;
-  font-size: 60px;
+  font-size: 40px;
   display: block;
+}
+#time-tracker {
+  top: 90%; left: 3%;
+}
+#hi-score {
+  top: 90%; right: 3%;
+}
+
+.nav-button{
+  position: absolute;
+  display: block;
+  width: 5vw;
+  height: 5vw;
+  transform: translateX(-50%);
+  z-index: 11;
+}
+#home {
+  top: 90%; left: 45%;
+  background-color: white;
+}
+#restart {
+  top: 90%; left: 55%;
+  background-color: rgb(252, 160, 160);
 }
 
 .button {
@@ -99,4 +132,24 @@ h4 {
   font-family: "Jersey 20", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+@keyframes record {
+  0% {
+    color: rgb(249, 249, 163);
+    font-size: 120px;
+    transform: translateX(-50%) rotate(0) scale(1);
+    
+  }
+  60% {
+    color: rgb(247, 216, 62);
+    font-size: 140px;
+    transform: translateX(-50%) rotate(8deg) scale(1.1);
+  }
+  100% {
+    color: rgb(249, 249, 163);
+    font-size: 120px;
+    transform: translateX(-50%) rotate(0) scale(1);
+    
+  }
 }
