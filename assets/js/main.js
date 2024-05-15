@@ -4,6 +4,7 @@ const startButton = document
   .getElementById("start-button")
   .getBoundingClientRect();
 const times = document.getElementById("times");
+const newRecord = document.getElementById("new-record");
 const nav = document.getElementById("nav");
 const timeTracker = document.getElementById("time-tracker");
 const scoreboard = document.getElementById("hi-score");
@@ -61,6 +62,7 @@ function gameOver(gameOver) {
       localStorage.setItem("hiScore", delta);
       hiScore = localStorage.getItem("hiScore");
       scoreboard.innerText = `Best Time: ${Math.floor(hiScore) / 1000} Seconds`;
+      newRecord.classList.remove("hide");
     }
   }
 }
@@ -102,6 +104,7 @@ function goHome() {
   nav.classList.add("hide");
   mainMenu.classList.remove("hide");
   gameOverMenu.classList.add("hide");
+  newRecord.classList.add("hide");
 }
 
 ///// MAIN PROGRAMME
@@ -112,6 +115,7 @@ function main(moveMouse) {
   timeInit();
   times.classList.remove("hide");
   nav.classList.remove("hide");
+  newRecord.classList.add("hide");
   emptyTargets = 0;
   createTarget(targets.length, "default");
   mainMenu.classList.add("hide");
