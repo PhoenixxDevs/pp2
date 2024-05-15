@@ -19,6 +19,11 @@ canvas {
   cursor: none;
 }
 
+input {
+ z-index: 100;
+ cursor: pointer; 
+}
+
           /* MAIN STYLES */
 
 .menu {
