@@ -1,6 +1,7 @@
+///// Check out - https://github.com/mdn/webaudio-examples/blob/main/audio-buffer-source-node/loop/script.js
+
 const volumeControl = document.getElementById('volume-control');
-const gainNode = audioCtx.createGain();
-let audioCtx, buffer, source;
+let audioCtx, buffer, source, gainNode;
 let songPlaying = false;
 let songToggled = true;
 
@@ -12,8 +13,6 @@ async function loadAudio() {
     // Decode it
     buffer = await audioCtx.decodeAudioData(await response.arrayBuffer());
     const max = Math.floor(buffer.duration);
-    // loopstartControl.setAttribute("max", max);
-    // loopendControl.setAttribute("max", max);
   } catch (err) {
     console.error(`Unable to fetch the audio file. Error: ${err.message}`);
   }
@@ -22,16 +21,20 @@ async function loadAudio() {
 async function playSong() {
   if (!audioCtx) {
     audioCtx = new AudioContext();
+    gainNode = audioCtx.createGain();
     await loadAudio();
   }
+  // bpm * amount of bars * beats per bar
+  let bpm = (60 / 132);
+  let startOfLoop = bpm * (8 * 4);
+  let lengthOfLoop = bpm * (88 * 4);
   source = audioCtx.createBufferSource();
   source.buffer = buffer;
   source.connect(gainNode).connect(audioCtx.destination);
   source.loop = true;
-  console.log(source)
-  // source.loopStart = 
-  // source.loopEnd = loopendControl.value;
-  source.start(0);
+  source.loopStart = startOfLoop;
+  source.loopEnd = startOfLoop + lengthOfLoop;
+  source.start(0, 0);
   songPlaying = true;
 };
 
