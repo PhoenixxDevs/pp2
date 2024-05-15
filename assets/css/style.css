@@ -20,8 +20,9 @@ canvas {
 }
 
 input {
- z-index: 100;
- cursor: pointer; 
+  position: absolute;
+  z-index: 100;
+  cursor: pointer; 
 }
 
           /* MAIN STYLES */
