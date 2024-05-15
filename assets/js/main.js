@@ -29,6 +29,9 @@ let WIDTH,
   delta;
 // PRESETTING SIZE OF ARRAY HELPS WITH PERFORMANCE - NO GARBAGE COLLECTION NECESSARY
 let targets = new Array(15);
+let hiScore = 100000 || localStorage.getItem("hiScore");
+
+/////// UTILITY FUNCTIONS
 
 function resize() {
   WIDTH = canvas.width = window.innerWidth - 4;
@@ -48,22 +51,44 @@ function gameOver() {
   timeTracker.classList.add("hide");
   ui.classList.add("hide");
   score.innerText = `${Math.floor(delta) / 1000} SECONDS!`;
+  if(!localStorage.getItem("hiScore") || localStorage.getItem("hiScore") < delta){
+    localStorage.setItem("hiScore", delta);
+  }
 }
-
-function main() {
-  resize();
-  timeTracker.classList.remove("hide");
-  ui.classList.remove("hide");
-  timer = 0;
-  timerStarted = false;
-  delta = 0;
-  emptyTargets = 0;
+function mouseInit() {
   mouse.fire = false;
   mouse.firstClick = false;
   mouse.pos = {
     x: startButton.x + startButton.width / 2,
     y: startButton.y + startButton.height / 2,
   };
+}
+function timeInit() {
+  timeTracker.classList.remove("hide");
+  timer = 0;
+  timerStarted = false;
+  delta = 0;
+}
+function handleTargets(){
+  for (let i = 0; i < targets.length; i++) {
+    if (!targets[i]) {
+      emptyTargets++;
+      continue;
+    } else {
+      targets[i].update();
+      emptyTargets = 0;
+    }
+  }
+}
+
+///// MAIN PROGRAMME
+
+function main() {
+  resize();
+  mouseInit();
+  timeInit();
+  ui.classList.remove("hide");
+  emptyTargets = 0;
   createTarget(targets.length, "default");
   mainMenu.classList.add("hide");
   gameOverMenu.classList.add("hide");
@@ -87,15 +112,8 @@ function animate(timestamp) {
       gameOver();
     }
 
-    for (let i = 0; i < targets.length; i++) {
-      if (!targets[i]) {
-        emptyTargets++;
-        continue;
-      } else {
-        targets[i].update();
-        emptyTargets = 0;
-      }
-    }
+    handleTargets();
+
     mouse.color = `hsl(${Math.floor(mouse.pos.y + 1 / 2)} 97% 75%)`;
     mouse.draw();
     if (!mouse.firstClick && mouse.fire) {
