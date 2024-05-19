@@ -26,7 +26,7 @@ async function playSong() {
   }
   // bpm * amount of bars * beats per bar
   let bpm = (60 / 132);
-  let startOfLoop = bpm * (8 * 4);
+  let startOfLoop = bpm * (8 * 4) + 0.02;
   let lengthOfLoop = bpm * (88 * 4);
   source = audioCtx.createBufferSource();
   source.buffer = buffer;
@@ -34,7 +34,7 @@ async function playSong() {
   source.loop = true;
   source.loopStart = startOfLoop;
   source.loopEnd = startOfLoop + lengthOfLoop;
-  source.start(0, 0);
+  source.start(0, startOfLoop + lengthOfLoop - 2);
   songPlaying = true;
 };
 
