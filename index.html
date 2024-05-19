@@ -15,15 +15,16 @@
   <body>
     <canvas id="canvas"></canvas>
     <div id="music-container">
-      <input type="range" id="volume-control" min="0" max="2" value="1" step="0.01" />
+      <label for="volume-control" class="j20">Volume:</label>
+      <input type="range" id="volume-control" min="0" max="2" value="1" step="0.01" name="volume-control"/>
       <audio id="song" src="assets/music/132garaaj.mp3"></audio>
     </div>
     <div id="main-menu" class="menu">
       <h1 class="title j20">AIM TRAINER</h1>
       <p class="description j20">
-        AIM TRAINER is a simple game that helps improve your aim and reaction
+        <span class="highlight">AIM TRAINER</span> is a simple game that helps improve your aim and reaction
         time. <br />
-        Your goal is to click all of the targets as quickly as possible. <br />
+        Your goal is to <span class="highlight">click all of the targets</span> as quickly as possible. <br />
         Click the <em>START</em> button to begin.
       </p>
       <button id="start-button" class="button j20" onclick="main(1)">
@@ -42,7 +43,19 @@
     </div>
     <div id="nav" class="hide">
       <div id="restart" class="nav-button" onclick="main(0)"></div>
-      <div id="home" class="nav-button" onclick="goHome()"></div>
+      <div id="home" class="nav-button" onclick="goHome()">
+        <div class="icon-home" style="float: left">
+          <div class="home-body" style="background-color: #2CC3B5"></div>
+          <div class="home-roof-cut-left"></div>
+          <div class="home-roof-cut-right"></div>
+          <div class="home-door"></div>
+          <div class="home-chimney" style="background-color: #2CC3B5"></div>
+          <div class="home-roof-container">
+            <div class="home-roof-left" style="background-color: #2CC3B5"></div>
+            <div class="home-roof-right" style="background-color: #2CC3B5"></div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="assets/js/sound.js"></script>
     <script src="assets/js/class.js"></script>

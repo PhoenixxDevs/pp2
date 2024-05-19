@@ -34,7 +34,7 @@ async function playSong() {
   source.loop = true;
   source.loopStart = startOfLoop;
   source.loopEnd = startOfLoop + lengthOfLoop;
-  source.start(0, startOfLoop + lengthOfLoop - 2);
+  source.start(0);
   songPlaying = true;
 };
 

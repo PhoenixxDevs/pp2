@@ -59,7 +59,6 @@ class Target extends Circle {
         x: getRandomInt(this.size, WIDTH - this.size),
         y: getRandomInt(this.size, HEIGHT * 0.8 - this.size)
       }
-      console.log('yo');
       this.randomisePos(i);
     }
     else return
