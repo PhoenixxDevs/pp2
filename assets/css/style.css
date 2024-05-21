@@ -104,7 +104,6 @@ h3 {
   width: 5vw;
   height: 5vw;
   transform: translateX(-50%);
-  z-index: 11;
 }
 
 .button {
@@ -142,6 +141,8 @@ h3 {
 #home {
   top: 90%; left: 45%;
   cursor: pointer;
+  z-index: 11;
+  margin-right: 5px;
 }
 #restart {
   position: absolute;
@@ -153,6 +154,8 @@ h3 {
   border-radius: 8px;
   cursor: pointer;
   transition: ease-in-out 0.2s;
+  margin-left: 5px;
+  z-index: 11;
 }
 #restart:hover {
   transform: scale(1.1);

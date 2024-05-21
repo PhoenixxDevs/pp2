@@ -48,12 +48,15 @@ function createTarget(amount, type) {
     targets[i] = new Target(type, i);
   }
 }
+function toSeconds(milliseconds){
+  return Math.floor(milliseconds) / 1000;
+}
 function gameOver(gameOver) {
   gameStart = false;
   gameOverMenu.classList.remove("hide");
   timeTracker.classList.add("hide");
   times.classList.add("hide");
-  score.innerText = `${Math.floor(delta) / 1000} SECONDS!`;
+  score.innerText = `${toSeconds(delta)} SECONDS!`;
   if (gameOver) {
     if (
       !localStorage.getItem("hiScore") ||
@@ -61,7 +64,7 @@ function gameOver(gameOver) {
     ) {
       localStorage.setItem("hiScore", delta);
       hiScore = localStorage.getItem("hiScore");
-      scoreboard.innerText = `Best Time: ${Math.floor(hiScore) / 1000} Seconds`;
+      scoreboard.innerText = `Best Time: ${toSeconds(hiScore)} Seconds`;
       newRecord.classList.remove("hide");
     }
   }
@@ -79,7 +82,7 @@ function mouseInit(moveMouse) {
 function timeInit() {
   timeTracker.classList.remove("hide");
   scoreboard.classList.remove("hide");
-  scoreboard.innerText = `Best Time: ${Math.floor(hiScore) / 1000} Seconds`;
+  scoreboard.innerText = `Best Time: ${toSeconds(hiScore)} Seconds`;
   timer = 0;
   timerStarted = false;
   delta = 0;
@@ -135,7 +138,7 @@ function animate(timestamp) {
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
     delta = timestamp - timer;
     if (timerStarted) {
-      timeTracker.innerText = `${Math.floor(delta) / 1000}`;
+      timeTracker.innerText = `${toSeconds(delta)}`;
     }
     // GAME LOOP
     if (emptyTargets > targets.length) {
