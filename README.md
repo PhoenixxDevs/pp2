@@ -13,7 +13,6 @@
 - [User Experience (UX)](#user-experience-ux)
   - [Important Inclusions](#important-inclusions)
   - [User Stories](#user-stories)
-    - [My Goals](#my-goals)
     - [First Time Visitor Goals](#first-time-visitor-goals)
     - [Professional Visitor Goals](#professional-visitor-goals)
     - [Repeat Visitor Goals](#repeat-visitor-goals)
@@ -47,7 +46,7 @@
 
 # Initial Discussion
 
-Aim Trainer is an online game/tool to practice mouse cursor accuracy. Although the premise is simple, the game should be made to be fun and addictive.
+Aim Trainer is an online game/tool to practice mouse cursor accuracy. Although the premise is simple, the game should be both fun and addictive.
 
 ---
 
@@ -63,14 +62,33 @@ DONT FORGET THE DAMN MOCK UPS BOOOYYY
 
 ## Important Inclusions
 
+- Colour
+- Score Tracker
+- Music
+- Volume Control
+- Navigation
 
+---
 
 ## User Stories
 
-### My Goals
+---
+
 ### First Time Visitor Goals
+1. As a first time visitor, I want to be able to easily navigate the site to play the game.
+2. As a first time visitor, I want to be able to start a new game easily.
+3. As a first time visitor, I want audio and colour to keep me interested.
+4. As a first time visitor, I want to easily understand what the game is about.
+
 ### Professional Visitor Goals
+1. As a professional visitor, I want to be able to easily navigate the site to play the game.
+2. As a professional visitor, I want to be able to restart mid game as to not waste time.
+3. As a professional visitor, I want to be able to use the game as a tool for improving precision and reaction times.
+   
 ### Repeat Visitor Goals
+1. As a repeat visitor, I want to be able to enjoy competing against my best times.
+2. As a repeat visitor, I want to be able to have my high score saved for when I return.
+3. As a repeat visitor, I want to be able to keep my volume setting when I return.
 
 ---
 
