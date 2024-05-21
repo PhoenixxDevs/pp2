@@ -24,6 +24,7 @@ async function playSong() {
     gainNode = audioCtx.createGain();
     await loadAudio();
   }
+  gainNode.gain.value = localStorage.getItem("volume") || 1;
   // bpm * amount of bars * beats per bar
   let bpm = (60 / 132);
   let startOfLoop = bpm * (8 * 4) + 0.02;
