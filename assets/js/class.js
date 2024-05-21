@@ -46,7 +46,7 @@ class Target extends Circle {
             y: 0,
           },
           color: `hsl(${getRandomInt(100, 350)} 90% 92%)`,
-        }
+        };
         break;
     }
     super(config);
@@ -58,10 +58,10 @@ class Target extends Circle {
       this.pos = {
         x: getRandomInt(this.size, WIDTH - this.size),
         y: getRandomInt(this.size, HEIGHT * 0.8 - this.size)
-      }
+      };
       this.randomisePos(i);
     }
-    else return
+    else return;
   }
   checkContact(circle) {
     let dx = this.pos.x - circle.pos.x;

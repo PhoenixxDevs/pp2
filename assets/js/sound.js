@@ -37,7 +37,7 @@ async function playSong() {
   source.loopEnd = startOfLoop + lengthOfLoop;
   source.start(0);
   songPlaying = true;
-};
+}
 
 volumeControl.addEventListener(
   "input",
