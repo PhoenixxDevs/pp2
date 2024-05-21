@@ -42,6 +42,9 @@ async function playSong() {
 volumeControl.addEventListener(
   "input",
   () => {
+    if(!gainNode) { 
+      return;
+    }
     gainNode.gain.value = volumeControl.value;
     localStorage.setItem('volume', volumeControl.value);
   },
