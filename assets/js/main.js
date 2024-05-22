@@ -173,3 +173,11 @@ addEventListener("mousedown", (e) => {
 addEventListener("mouseup", () => {
   mouse.fire = false;
 });
+addEventListener("keydown", (e)=>{
+  if(e.repeat){return;}
+  switch(e.key){
+    case 'r': case 'R':
+      main();
+    break;
+  }
+});
