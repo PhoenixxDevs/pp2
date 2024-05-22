@@ -134,7 +134,7 @@ function main(moveMouse) {
 
 function animate(timestamp) {
   if (gameStart) {
-    ctx.fillStyle = "rgba(0,0,0,0.2)";
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
     delta = timestamp - timer;
     if (timerStarted) {

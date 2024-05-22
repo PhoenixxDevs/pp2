@@ -82,7 +82,7 @@ DONT FORGET THE DAMN MOCK UPS BOOOYYY
 
 ### Professional Visitor Goals
 1. As a professional visitor, I want to be able to easily navigate the site to play the game.
-2. As a professional visitor, I want to be able to restart mid game as to not waste time.
+2. As a professional visitor, I want to be able to restart quickly as to not waste time.
 3. As a professional visitor, I want to be able to use the game as a tool for improving precision and reaction times.
    
 ### Repeat Visitor Goals
@@ -99,6 +99,8 @@ DONT FORGET THE DAMN MOCK UPS BOOOYYY
 ### Home
 
 ### Game
+
+---
 
 ## Colour Palette
 
@@ -183,3 +185,4 @@ https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_A
 https://github.com/mdn/webaudio-examples/blob/main/audio-buffer-source-node/loop/script.js
 https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer#example
 https://codepen.io/msaetre/pen/vYMoNX - HOME ICON
+https://fossheim.io/writing/posts/css-text-gradient/ - Gradient text
