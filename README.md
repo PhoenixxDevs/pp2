@@ -32,15 +32,15 @@
       - [Manual Testing](#manual-testing)
       - [Browsers](#browsers)
       - [Bug Fixes](#bug-fixes)
-        - [Bug 1](#bug-1)
+      - [Bug 1](#bug-1)
       - [Bug 2](#bug-2)
       - [Bug 3](#bug-3)
-  - [Deployment](#deployment)
-    - [Cloning and Forking](#cloning-and-forking)
-      - [Cloning](#cloning)
-      - [Forking](#forking)
-    - [Local Deployment](#local-deployment)
-    - [Remote Deployment](#remote-deployment)
+- [Deployment](#deployment)
+  - [Cloning and Forking](#cloning-and-forking)
+    - [Cloning](#cloning)
+    - [Forking](#forking)
+  - [Local Deployment](#local-deployment)
+  - [Remote Deployment](#remote-deployment)
 - [References](#references)
 ---
 
@@ -108,7 +108,15 @@ DONT FORGET THE DAMN MOCK UPS BOOOYYY
 
 ## Home Section
 
+- Instructions on how to play the game.
+- A start button to begin the aim trainer.
+
 ## Game Section
+
+- Display of 15 targets for the user to click.
+- Timer to track the user's completion time.
+- Feedback on the user's performance and their best time.
+- Music with near-perfect loop
 
 ---
 
@@ -128,23 +136,44 @@ DONT FORGET THE DAMN MOCK UPS BOOOYYY
 
 #### Bug Fixes
 
-##### Bug 1
+#### Bug 1
+
+Fixed an issue where targets were not registering clicks properly.
 
 #### Bug 2
 
+Resolved a timing issue where the timer continued after all targets were clicked.
+
 #### Bug 3
 
-## Deployment
-  
-### Cloning and Forking
+Addressed a display issue on smaller screens.
 
-#### Cloning
+# Deployment
 
-#### Forking
+## Cloning and Forking
 
-### Local Deployment
+### Cloning
 
-### Remote Deployment
+1. Navigate to the repository.
+2. Click on the 'Code' button.
+3. Select 'Clone' and copy the URL.
+4. Open your terminal and use `git clone [URL]`.
+
+### Forking
+
+1. Navigate to the repository.
+2. Click on the 'Fork' button in the top right corner.
+3. Follow the on-screen instructions to create a fork of the repository.
+
+## Local Deployment
+
+1. Clone the repository to your local machine.
+2. Open the project folder.
+3. Open `index.html` in your web browser.
+
+## Remote Deployment
+
+The game is deployed using GitHub Pages. Visit the following link to play: [Phoenixx Aim Trainer](https://phoenixxdevs.github.io/pp2/)
 
 ---
 
