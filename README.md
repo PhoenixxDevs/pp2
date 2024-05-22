@@ -20,10 +20,12 @@
   - [Wireframes](#wireframes)
     - [Home](#home)
     - [Game](#game)
+    - [End](#end)
   - [Colour Palette](#colour-palette)
 - [Features](#features)
   - [Home Section](#home-section)
   - [Game Section](#game-section)
+  - [End Section](#end-section)
 - [Testing](#testing)
   - [Validators](#validators)
     - [Testing User Stories](#testing-user-stories)
@@ -52,13 +54,12 @@ Aim Trainer is an online game/tool to practice mouse cursor accuracy. Although t
 
 ## Mock Ups
 
-DONT FORGET THE DAMN MOCK UPS BOOOYYY
+
 
 ---
 
 # User Experience (UX)
 
----
 
 ## Important Inclusions
 
@@ -96,22 +97,34 @@ DONT FORGET THE DAMN MOCK UPS BOOOYYY
 
 ## Wireframes
 
+Below I have provided the basic wireframes for the design of the website. I have also numbered each wireframe with the relevant [User Story](#user-stories) - F = First time visitor, P = Professional visitor, R = Repeat visitor
+
 ### Home
+F: 1, 2, 3, 4 - P: 1, 2 - R: 3
+![](docs/design/wf-home.png)
 
 ### Game
+F: 2, 3 - P: 2, 3 - R: 1, 2, 3
+![](docs/design/wf-game.png)
+
+### End
+F: 2, 3, 4 - P: 2, 3 - R: 1, 2, 3
+![](docs/design/wf-end.png)
 
 ---
 
 ## Colour Palette
 
----
+In the interest of keeping the game fresh, choosing a color palette was not the right solution for me. Instead I decided to go for pastel colours, hard coded for the menus and randomised colours using hsl() for the targets when the game starts.
 
 # Features
 
 ## Home Section
 
 - Instructions on how to play the game.
-- A start button to begin the aim trainer.
+- A start button to begin the aim trainer (interactive on hover and click).
+- A volume slider
+- Clear instructions on how to proceed
 
 ## Game Section
 
@@ -119,6 +132,17 @@ DONT FORGET THE DAMN MOCK UPS BOOOYYY
 - Timer to track the user's completion time.
 - Feedback on the user's performance and their best time.
 - Music with near-perfect loop
+- Fading targets
+- Custom mouse cursor with trail
+- Best time
+- Volume slider
+
+## End Section
+
+- Volume Slider.
+- Motivational message.
+- Time taken to complete.
+- Navigation
 
 ---
 

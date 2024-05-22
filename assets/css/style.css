@@ -21,8 +21,7 @@ canvas {
 
 #music-container {
   position: absolute;
-  z-index: 100;
-  cursor: pointer; 
+  z-index: 100; 
 }
 
           /* MAIN STYLES */

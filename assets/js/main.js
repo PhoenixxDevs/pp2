@@ -123,7 +123,7 @@ function main(moveMouse) {
   createTarget(targets.length, "default");
   mainMenu.classList.add("hide");
   gameOverMenu.classList.add("hide");
-  if (!songPlaying && songToggled){
+  if (!songPlaying){
     playSong();
   }
   if (!gameStart) {

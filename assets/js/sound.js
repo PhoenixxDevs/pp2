@@ -3,13 +3,11 @@
 const volumeControl = document.getElementById('volume-control');
 let audioCtx, buffer, source, gainNode;
 let songPlaying = false;
-let songToggled = true;
-
 
 async function loadAudio() {
   try {
     // Load an audio file
-    const response = await fetch("assets/music/132garaaj.mp3");
+    const response = await fetch("assets/music/garaaj.mp3");
     // Decode it
     buffer = await audioCtx.decodeAudioData(await response.arrayBuffer());
     const max = Math.floor(buffer.duration);
