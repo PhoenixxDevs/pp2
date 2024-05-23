@@ -26,23 +26,27 @@
   - [Home Section](#home-section)
   - [Game Section](#game-section)
   - [End Section](#end-section)
+  - [Future Additions](#future-additions)
 - [Testing](#testing)
   - [Validators](#validators)
-    - [Testing User Stories](#testing-user-stories)
-    - [Accessibility Testing](#accessibility-testing)
-      - [Lighthouse Testing](#lighthouse-testing)
-      - [Manual Testing](#manual-testing)
-      - [Browsers](#browsers)
-      - [Bug Fixes](#bug-fixes)
-      - [Bug 1](#bug-1)
-      - [Bug 2](#bug-2)
-      - [Bug 3](#bug-3)
+    - [HTML](#html)
+    - [CSS](#css)
+    - [JS](#js)
+  - [Testing User Stories](#testing-user-stories)
+  - [Accessibility Testing](#accessibility-testing)
+  - [Lighthouse Testing](#lighthouse-testing)
+    - [Manual Testing](#manual-testing)
+    - [Browsers](#browsers)
+    - [Bug Fixes](#bug-fixes)
+    - [Bug 1](#bug-1)
+    - [Bug 2](#bug-2)
+    - [Bug 3](#bug-3)
 - [Deployment](#deployment)
   - [Cloning and Forking](#cloning-and-forking)
     - [Cloning](#cloning)
     - [Forking](#forking)
-  - [Local Deployment](#local-deployment)
-  - [Remote Deployment](#remote-deployment)
+    - [Local Deployment](#local-deployment)
+    - [Remote Deployment](#remote-deployment)
 - [References](#references)
 ---
 
@@ -163,6 +167,11 @@ In the interest of keeping the game fresh, choosing a color palette was not the 
 ![](docs/testing/html-validator.png) 
 
 ### CSS
+[0 errors](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fphoenixxdevs.github.io%2Fpp2%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+![](docs/testing/ccs-validator.png)
+### JS
+![](docs/testing/js-validator.png)
 
 ## Testing User Stories
 
@@ -173,6 +182,8 @@ In the interest of keeping the game fresh, choosing a color palette was not the 
 ### Manual Testing
 
 ### Browsers
+
+Everything works as expected in the most recent versions of Chrome, Firefox, Safari, Opera and Internet Explorer.
 
 ### Bug Fixes
 
