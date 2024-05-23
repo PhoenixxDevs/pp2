@@ -81,7 +81,7 @@ function mouseInit(moveMouse) {
 function timeInit() {
   timeTracker.classList.remove("hide");
   scoreboard.classList.remove("hide");
-  scoreboard.innerText = `Best Time: ${toSeconds(hiScore)} Seconds`;
+  scoreboard.innerText = `Best: ${toSeconds(hiScore)} Seconds`;
   timer = 0;
   timerStarted = false;
   delta = 0;
@@ -180,3 +180,4 @@ addEventListener("keydown", (e)=>{
     break;
   }
 });
+window.addEventListener('resize', goHome);

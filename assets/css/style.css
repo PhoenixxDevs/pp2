@@ -293,7 +293,6 @@ h3 {
   border-radius: 15%;
 }
 
-
           /* EXTRA STYLES */
 
 .j20 {
@@ -305,21 +304,19 @@ h3 {
 
 @keyframes record {
   0% {
-    color: rgb(249, 249, 163);
+    color: rgba(249, 249, 163, 0.3);
     font-size: 120px;
     transform: translateX(-50%) rotate(0) scale(1);
-    
   }
   60% {
-    color: rgb(247, 216, 62);
+    color: rgba(247, 216, 62, 0.7);
     font-size: 140px;
     transform: translateX(-50%) rotate(8deg) scale(1.1);
   }
   100% {
-    color: rgb(249, 249, 163);
+    color: rgba(249, 249, 163, 0.85);
     font-size: 120px;
     transform: translateX(-50%) rotate(0) scale(1);
-    
   }
 }
 @keyframes refreshSpin {
@@ -333,12 +330,46 @@ h3 {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-
 @keyframes borderFlash {
   from {
     border-color: rgba(255, 126, 126, 0);
   }
   to {
     border-color: rgba(255, 126, 126, 1);
+  }
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 880px) {
+  .title {
+    font-size: 100px;
+  }
+  #hi-score {
+    top: 2%; right: 3%;
+  }
+  #home {
+    cursor: pointer;
+    z-index: 11;
+    margin-right: 5px;
+    transform: translateX(700%);
+  }
+}
+@media (max-width: 600px) {
+  #hi-score {
+    font-size: 24px;
+    margin-top: 5px;
+  }
+  #music-container {
+    padding: 5px;
+  }
+  #music-container label {
+    margin-right: 5px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 450px) {
+  .description {
+    font-size: 26px;
   }
 }

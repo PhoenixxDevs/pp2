@@ -5,11 +5,9 @@
 ---
 
 # Table of Contents
-
 - [Aim trainer](#aim-trainer)
 - [Table of Contents](#table-of-contents)
 - [Initial Discussion](#initial-discussion)
-  - [Mock Ups](#mock-ups)
 - [User Experience (UX)](#user-experience-ux)
   - [Important Inclusions](#important-inclusions)
   - [User Stories](#user-stories)
@@ -48,6 +46,7 @@
     - [Local Deployment](#local-deployment)
     - [Remote Deployment](#remote-deployment)
 - [References](#references)
+
 ---
 
 # Initial Discussion
@@ -56,14 +55,7 @@ Aim Trainer is an online game/tool to practice mouse cursor accuracy. Although t
 
 ---
 
-## Mock Ups
-
-
-
----
-
 # User Experience (UX)
-
 
 ## Important Inclusions
 
@@ -86,14 +78,14 @@ Aim Trainer is an online game/tool to practice mouse cursor accuracy. Although t
 4. As a first time visitor, I want to easily understand what the game is about.
 
 ### Professional Visitor Goals
-1. As a professional visitor, I want to be able to easily navigate the site to play the game.
-2. As a professional visitor, I want to be able to restart quickly as to not waste time.
-3. As a professional visitor, I want to be able to use the game as a tool for improving precision and reaction times.
+5. As a professional visitor, I want to be able to easily navigate the site to play the game.
+6. As a professional visitor, I want to be able to restart quickly as to not waste time.
+7. As a professional visitor, I want to be able to use the game as a tool for improving precision and reaction times.
    
 ### Repeat Visitor Goals
-1. As a repeat visitor, I want to be able to enjoy competing against my best times.
-2. As a repeat visitor, I want to be able to have my high score saved for when I return.
-3. As a repeat visitor, I want to be able to keep my volume setting when I return.
+8. As a repeat visitor, I want to be able to enjoy competing against my best times.
+9. As a repeat visitor, I want to be able to have my high score saved for when I return.
+10. As a repeat visitor, I want to be able to keep my volume setting when I return.
 
 ---
 
@@ -104,15 +96,15 @@ Aim Trainer is an online game/tool to practice mouse cursor accuracy. Although t
 Below I have provided the basic wireframes for the design of the website. I have also numbered each wireframe with the relevant [User Story](#user-stories) - F = First time visitor, P = Professional visitor, R = Repeat visitor
 
 ### Home
-F: 1, 2, 3, 4 - P: 1, 2 - R: 3
+F: 1, 2, 3, 4 - P: 5, 6 - R: 10
 ![](docs/design/wf-home.png)
 
 ### Game
-F: 2, 3 - P: 2, 3 - R: 1, 2, 3
+F: 2, 3 - P: 6, 7 - R: 8, 9, 10
 ![](docs/design/wf-game.png)
 
 ### End
-F: 2, 3, 4 - P: 2, 3 - R: 1, 2, 3
+F: 2, 3, 4 - P: 6, 7 - R: 8, 9, 10
 ![](docs/design/wf-end.png)
 
 ---
@@ -175,7 +167,13 @@ In the interest of keeping the game fresh, choosing a color palette was not the 
 
 ## Testing User Stories
 
+All user goals, 1 through 10, have been acheived - see [Wireframes](#wireframes)
+
 ## Accessibility Testing
+
+- I have tested the web application on different browsers and different devices ensuring that functionality is not hindered.
+- All buttons function as intended
+- Fonts are clear and readable and colours contrast in a way which is manageable and easy to differentiate.
 
 ## Lighthouse Testing
 

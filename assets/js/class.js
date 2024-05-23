@@ -26,13 +26,27 @@ class Circle {
   }
 }
 
+function getTargetSize(){
+  let result = 10;
+    if(WIDTH > 700){
+    result = getRandomInt(20, 55);
+  }
+  else if(WIDTH <= 700 && WIDTH > 400){
+    result = getRandomInt(12, 30);
+  }
+  else {
+    result = getRandomInt(8, 22);
+  }
+  return result;
+}
+
 class Target extends Circle {
   constructor(type, id) {
     let config;
     switch (type) {
       case "default":
       default:
-        let size = getRandomInt(20, 55);
+        let size = getTargetSize();
         let posX = getRandomInt(size, WIDTH - size);
         let posY = getRandomInt(size, HEIGHT * 0.7 - size) + HEIGHT * 0.1;
         config = {
