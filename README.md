@@ -179,6 +179,8 @@ In the interest of keeping the game fresh, choosing a color palette was not the 
 
 ## Lighthouse Testing
 
+![](docs/testing/lighthouse.png)
+
 ### Manual Testing
 
 ### Browsers
