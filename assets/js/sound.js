@@ -10,7 +10,6 @@ async function loadAudio() {
     const response = await fetch("assets/music/garaaj.mp3");
     // Decode it
     buffer = await audioCtx.decodeAudioData(await response.arrayBuffer());
-    const max = Math.floor(buffer.duration);
   } catch (err) {
     console.error(`Unable to fetch the audio file. Error: ${err.message}`);
   }
@@ -46,5 +45,5 @@ volumeControl.addEventListener(
     gainNode.gain.value = volumeControl.value;
     localStorage.setItem('volume', volumeControl.value);
   },
-  false,
+  false
 );

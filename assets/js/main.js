@@ -24,7 +24,6 @@ const mouse = new Circle({
 
 let WIDTH,
   HEIGHT,
-  targetDefinitions,
   gameStart,
   emptyTargets,
   timer,
@@ -134,7 +133,7 @@ function main(moveMouse) {
 
 function animate(timestamp) {
   if (gameStart) {
-    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillStyle = "rgba(35, 7, 10, 0.05)";
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
     delta = timestamp - timer;
     if (timerStarted) {

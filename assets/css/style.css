@@ -39,19 +39,18 @@ canvas {
   margin: 60px 0;
   text-align: center;
   font-size: 160px;
-
   background-color: #CA4246;
   background: linear-gradient( 90deg,
     #abec4a 16.666%, 
     #54ea86 33.333%, 
     #819dda 66.666%, 
     #ef9ae3 70%);
-  /* Set thee background size and repeat properties. */
+  /* Set the background size and repeat properties. */
   background-size: 100%;
   background-repeat: repeat;
-  
   /* Use the text as a mask for the background. */
   /* This will show the gradient as a text color rather than element bg. */
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
 }

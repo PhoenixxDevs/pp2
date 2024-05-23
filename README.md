@@ -144,33 +144,47 @@ In the interest of keeping the game fresh, choosing a color palette was not the 
 - Time taken to complete.
 - Navigation
 
+## Future Additions
+
+- Moving targets.
+- Sound on shot.
+- Sound on hit.
+- Sound on miss.
+- Scoring system based on time, combo and target size.
+
 ---
 
 # Testing
 
 ## Validators
 
-### Testing User Stories
+### HTML
+[3 warnings about empty headings that I use to insert text](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fphoenixxdevs.github.io%2Fpp2%2F)
+![](docs/testing/html-validator.png) 
 
-### Accessibility Testing
+### CSS
 
-#### Lighthouse Testing
+## Testing User Stories
 
-#### Manual Testing
+## Accessibility Testing
 
-#### Browsers
+## Lighthouse Testing
 
-#### Bug Fixes
+### Manual Testing
 
-#### Bug 1
+### Browsers
+
+### Bug Fixes
+
+### Bug 1
 
 Fixed an issue where targets were not registering clicks properly.
 
-#### Bug 2
+### Bug 2
 
 Resolved a timing issue where the timer continued after all targets were clicked.
 
-#### Bug 3
+### Bug 3
 
 Addressed a display issue on smaller screens.
 
@@ -191,13 +205,13 @@ Addressed a display issue on smaller screens.
 2. Click on the 'Fork' button in the top right corner.
 3. Follow the on-screen instructions to create a fork of the repository.
 
-## Local Deployment
+### Local Deployment
 
 1. Clone the repository to your local machine.
 2. Open the project folder.
 3. Open `index.html` in your web browser.
 
-## Remote Deployment
+### Remote Deployment
 
 The game is deployed using GitHub Pages. Visit the following link to play: [Phoenixx Aim Trainer](https://phoenixxdevs.github.io/pp2/)
 
@@ -206,7 +220,11 @@ The game is deployed using GitHub Pages. Visit the following link to play: [Phoe
 # References
 
 https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API
+
 https://github.com/mdn/webaudio-examples/blob/main/audio-buffer-source-node/loop/script.js
+
 https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer#example
+
 https://codepen.io/msaetre/pen/vYMoNX - HOME ICON
+
 https://fossheim.io/writing/posts/css-text-gradient/ - Gradient text
